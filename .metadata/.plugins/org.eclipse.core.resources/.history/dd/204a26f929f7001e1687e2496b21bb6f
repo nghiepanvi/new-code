@@ -1,0 +1,78 @@
+package bai_4;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap so luong nhan vien: ");
+		int n = sc.nextInt();
+		Nhanvien nv[] = new Nhanvien[n];
+		System.out.println("Nhap thong tin nhan vien: ");
+		for (int i = 0; i < n; i++) {
+			System.out.println("Nhan vien thu: " + (i + 1));
+			nv[i] = new Nhanvien();
+			nv[i].input();
+		}
+		System.out.println("---------------------------------- ");
+		System.out.println("Xuat thong tin nhan vien");
+		for (int i = 0; i < n; i++) {
+			System.out.println("Nhan vien thu: " + (i + 1));
+			nv[i].outPut();
+		}
+		System.out.println("---------------------------------- ");
+		// phuong thuc tinh luong
+		System.out.println("Tinh luong nhan vien");
+		for (int i = 0; i < n; i++) {
+			System.out.println("Nhan vien thu: " + (i + 1));
+			nv[i].coutSalary(nv[i].getSalary(), nv[i].getHourWork());
+		}
+		// sắp xếp lương theo danh sách tăng dần in ra màn hinh
+		System.out.println("Danh sach san pham gia tang dan");
+		float sortSalary[] = new float[n];
+		// tạo mảng mới sortSalary. Lấy lượng từ nv gán vào mảng mới
+		for (int k = 0; k < n; k++) {
+			sortSalary[k] = nv[k].getSalary();
+
+		}
+		// sap xếp mảng
+		Arrays.sort(sortSalary);
+		System.out.println("-------------------------");
+		// in ra mảng đã sắp xếp
+		for (int i = 0; i < sortSalary.length; i++) {
+			for (int j = 0; j < sortSalary.length; j++) {
+				if (nv[j].getSalary() == sortSalary[i]) {
+					System.out.println(nv[j].getName() + " | " + nv[j].getBirthDay() + "  |  " + sortSalary[i]);
+				}
+			}
+
+		}
+		System.out.println("-------------------------");
+		// đếm số nhân viên được thưởng đưa ra màn hình
+		System.out.println("Danh sac nhan vien duoc thuong");
+		for (int i = 0; i < nv.length; i++) {
+			if (nv[i].getHourWork() >= 100) {
+				nv[i].outPut();
+			}
+		}
+		System.out.println("-------------------------");
+// đếm số nhân viên phòng kỹ thuật
+		
+		int count = 0;
+		for (int j = 0; j < nv.length; j++) {
+			if (nv[j].getDepartMent().equalsIgnoreCase("kỹ thuật")) {
+				count ++;
+		
+		}
+			System.out.println(" số nhân viên phòng kỹ thuật là: " + count);
+		// in nhân viên phòng kế toán in ra màn hình
+		System.out.println("Nhan vien của phòng kế toán:");
+		for (int z = 0; z < nv.length; z++) {
+			if (nv[z].getDepartMent().equalsIgnoreCase("kế toán")) {
+				nv[z].printDepartMent();
+			}
+		}
+	}
+}

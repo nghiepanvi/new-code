@@ -1,0 +1,77 @@
+package bai_4;
+
+import java.util.Scanner;
+
+public class Sinhvien extends Nguoi {
+	int salary;
+	int hourWork;
+	String departMent;
+
+	public Sinhvien() {
+	}
+
+	public Sinhvien(int salary, int hourWork, String departMent) {
+		super();
+		this.salary = salary;
+		this.hourWork = hourWork;
+		this.departMent = departMent;
+	}
+	
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public int getHourWork() {
+		return hourWork;
+	}
+
+	public void setHourWork(int hourWork) {
+		this.hourWork = hourWork;
+	}
+
+	public String getDepartMent() {
+		return departMent;
+	}
+
+	public void setDepartMent(String departMent) {
+		this.departMent = departMent;
+	}
+
+	@Override
+	public void input() {
+		super.input();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap luong");
+		salary = sc.nextInt();
+		System.out.println("Nhap gio lam");
+		hourWork = sc.nextInt();
+		System.out.println("Nhập ngày sinh");
+		departMent = sc.nextLine();
+	}
+	@Override
+	public void outPut() {
+		super.outPut();
+		System.out.println("Luong nv: " + salary);
+		System.out.println("Gio lam: " + hourWork);
+		System.out.println("Phong ban: " + departMent);
+	}
+	public void coutSalary ( int salary, int hourWork) {
+		
+		if (hourWork  >= 200) {
+			salary = salary + salary *20/100;
+		} else if(hourWork >= 100 && hourWork < 200) {
+			salary = salary + salary *10/100;
+		} else {
+			salary = this.salary;
+		}
+		System.out.println("Lương + thưởng = "+ salary);
+	}
+	public void printDepartMent () {
+		outPut();
+	}
+}

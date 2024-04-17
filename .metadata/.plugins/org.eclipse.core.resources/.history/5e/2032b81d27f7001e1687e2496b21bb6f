@@ -1,0 +1,35 @@
+package bai_4;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap so luong nhan vien: ");
+		int n = sc.nextInt();
+	 Nhanvien nv [] = new Nhanvien [n];
+	 System.out.println("Nhap thong tin nhan vien: ");
+            for (int i = 0; i < n; i++) {
+            	System.out.println("Nhan vien thu: " + (i+1));
+				nv[i] = new Nhanvien();
+				nv[i].input();
+			}
+            System.out.println("---------------------------------- ");
+            System.out.println("Xuat thong tin nhan vien");
+            for (int i = 0; i < n; i++) {
+            	System.out.println("Nhan vien thu: " + (i+1));
+				nv[i].outPut();
+			}
+            System.out.println("---------------------------------- ");
+    // phuong thuc tinh luong
+            System.out.println("Tinh luong nhan vien");
+            for (int i = 0; i < n; i++) {
+            	System.out.println("Nhan vien thu: " + (i+1));
+				nv[i].coutSalary(nv[i].getSalary(), nv[i].getHourWork());
+			}
+   // sắp xếp lương theo danh sách tăng dần in ra màn hinh
+            
+	}
+
+}
